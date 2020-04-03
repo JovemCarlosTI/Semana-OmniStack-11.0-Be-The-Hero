@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 // Importando o 'express'
+const { errors } = require('celebrate');
 
 const routes = require('./routes');
 // importa as rotas
@@ -12,6 +13,6 @@ app.use(express.json());
 // antes das requisições, converterá o json em entendível
 app.use(routes);
 // Usa as rotas
+app.use(errors());
 
-app.listen(3333);
-// O app escuta a porta :3333
+module.exports = app;
